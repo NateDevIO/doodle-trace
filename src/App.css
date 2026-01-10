@@ -173,22 +173,14 @@ body,
   height: 40px !important;
 }
 
-/* Increase letter size on mobile (30% larger) */
-@media (max-width: 768px) {
-  .canvas-wrapper svg text {
-    font-size: 104 !important;
-    /* 80 * 1.3 = 104 */
-  }
-}
-
 /* Desktop - keep original smaller size */
 @media (min-width: 769px) {
-  .canvas-wrapper svg {
+  .letter-guide svg {
     width: 80% !important;
     height: 80% !important;
   }
 
-  .canvas-wrapper svg text {
+  .letter-guide svg text {
     font-size: 80 !important;
     stroke-width: 1 !important;
   }
