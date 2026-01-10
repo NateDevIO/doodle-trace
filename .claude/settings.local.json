@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd Firebase Hosting and Cloud Functions setup\n\n- Add firebase.json configuration for hosting and functions\n- Add Cloud Function for DALL-E image generation API\n- Update imageGen.ts to use relative URL in production\n- Add Firebase-related entries to .gitignore\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)",
+      "Bash(npm run build:*)",
+      "Bash(firebase deploy:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ]
+  }
+}

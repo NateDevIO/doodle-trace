@@ -1,0 +1,284 @@
+:root {
+  --primary: #FF6B6B;
+  --secondary: #4ECDC4;
+  --accent: #FFE66D;
+  --background: #F7FFF7;
+  --text: #292F36;
+  --panel-bg: white;
+  --border-radius: 16px;
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+/* Canvas container - maintain reasonable aspect ratio */
+.canvas-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.canvas-container canvas {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  touch-action: manipulation; /* Improves touch response */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  overflow: hidden; /* Prevent pull-to-refresh on mobile if possible */
+  user-select: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+/* Desktop: show desktop controls, hide mobile controls */
+.mobile-controls {
+  display: none;
+}
+
+.desktop-controls {
+  display: block;
+}
+
+/* Mobile & Tablet responsive styles (covers up to large tablets like iPad Pro) */
+@media (max-width: 1400px) {
+  /* Show mobile controls, hide desktop controls */
+  .mobile-controls {
+    display: block;
+  }
+
+  .desktop-controls {
+    display: none;
+  }
+
+  .app-container {
+    padding: 0.5rem !important;
+    padding-bottom: 70px !important;
+    gap: 0.5rem !important;
+  }
+
+  /* Collapsible header */
+  .header-logo {
+    display: none !important;
+  }
+
+  .header-collapse-btn {
+    display: flex !important;
+  }
+
+  .header-content {
+    padding: 0.5rem !important;
+    gap: 0.5rem !important;
+  }
+
+  .app-header.collapsed .header-content {
+    display: none !important;
+  }
+
+  .app-header.collapsed .header-collapsed-bar {
+    display: flex !important;
+  }
+
+  .app-header h1 {
+    font-size: 1.4rem !important;
+  }
+
+  .app-main {
+    flex-direction: column !important;
+  }
+
+  .canvas-container {
+    flex: 1 !important;
+    min-height: 0 !important;
+    aspect-ratio: auto !important;
+  }
+
+  .generator-container {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 0.5rem !important;
+  }
+
+  .generator-input {
+    width: 100% !important;
+  }
+
+  .generator-presets {
+    justify-content: center !important;
+  }
+
+  .app-footer {
+    bottom: 60px !important;
+  }
+}
+
+/* Even smaller screens (phones portrait) */
+@media (max-width: 480px) {
+  .app-container {
+    padding: 0.25rem !important;
+    padding-bottom: 65px !important;
+  }
+
+  .header-content {
+    padding: 0.4rem !important;
+  }
+
+  .app-header {
+    border-radius: 8px !important;
+  }
+
+  .generator-presets button {
+    min-width: 38px !important;
+    min-height: 38px !important;
+    padding: 6px !important;
+    font-size: 1.2rem !important;
+  }
+}
+
+/* Landscape mode on mobile/tablet */
+@media (max-width: 1400px) and (orientation: landscape) {
+  .app-container {
+    padding: 0.15rem !important;
+    padding-bottom: 50px !important;
+    gap: 0.15rem !important;
+  }
+
+  /* Ensure desktop controls are hidden in landscape too */
+  .desktop-controls {
+    display: none !important;
+  }
+
+  /* Header starts collapsed in landscape, but CAN be expanded by tapping */
+  .app-header.collapsed .header-content {
+    display: none !important;
+  }
+
+  .app-header.collapsed .header-collapsed-bar {
+    display: flex !important;
+    padding: 4px 8px !important;
+  }
+
+  /* When header is expanded (not collapsed), show content and hide bar */
+  .app-header:not(.collapsed) .header-content {
+    display: flex !important;
+    padding: 0.3rem !important;
+    gap: 0.3rem !important;
+  }
+
+  .app-header:not(.collapsed) .header-collapsed-bar {
+    display: none !important;
+  }
+
+  .app-header .header-collapsed-bar span {
+    font-size: 0.8rem !important;
+  }
+
+  /* Compact generator in landscape */
+  .generator-container {
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 0.25rem !important;
+    align-items: center !important;
+  }
+
+  .generator-input {
+    flex: 1 !important;
+    min-width: 100px !important;
+  }
+
+  .generator-input input {
+    padding: 4px 8px !important;
+    font-size: 0.8rem !important;
+  }
+
+  .generator-presets {
+    gap: 2px !important;
+  }
+
+  .generator-presets button {
+    min-width: 28px !important;
+    min-height: 28px !important;
+    padding: 4px !important;
+    font-size: 0.9rem !important;
+  }
+
+  select {
+    padding: 4px !important;
+    font-size: 0.8rem !important;
+  }
+
+  .header-collapse-btn {
+    padding: 4px 8px !important;
+    font-size: 0.7rem !important;
+  }
+
+  /* Make canvas take maximum space */
+  .canvas-container {
+    flex: 1 !important;
+    min-height: 0 !important;
+  }
+
+  /* Keep main as column to stack header above canvas */
+  .app-main {
+    flex-direction: column !important;
+  }
+
+  .app-footer {
+    bottom: 45px !important;
+    font-size: 0.55rem !important;
+  }
+}
+
+/* Phone landscape - extra compact */
+@media (max-height: 500px) and (orientation: landscape) {
+  .app-container {
+    padding: 0.1rem !important;
+    padding-bottom: 44px !important;
+    gap: 0.1rem !important;
+  }
+
+  .app-header .header-collapsed-bar {
+    padding: 2px 6px !important;
+  }
+
+  .app-header .header-collapsed-bar span {
+    font-size: 0.7rem !important;
+  }
+
+  .app-footer {
+    bottom: 40px !important;
+    font-size: 0.5rem !important;
+  }
+}
+
+/* Compact mobile controls in landscape */
+@media (orientation: landscape) {
+  .mobile-controls > div {
+    border-radius: 12px 12px 0 0 !important;
+  }
+
+  .mobile-controls > div > div:first-child {
+    padding: 4px 8px !important;
+    gap: 4px !important;
+  }
+
+  .mobile-controls button {
+    padding: 6px !important;
+  }
+
+  .mobile-controls svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+}
