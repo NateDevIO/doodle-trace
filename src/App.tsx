@@ -101,7 +101,6 @@ function App() {
             <Canvas
               ref={canvasRef}
               color={selectedColor}
-              tool="brush"
               brushSize={20} // Thicker brush
             />
           </div>
