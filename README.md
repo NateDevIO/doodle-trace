@@ -31,6 +31,19 @@ DoodleTrace is a fun, interactive tracing app designed for kids to practice writ
 
 ---
 
+## 🧰 Tech Stack
+
+| Category | Technology |
+|----------|------------|
+| **Framework** | React 19 |
+| **Language** | TypeScript |
+| **Build Tool** | Vite |
+| **Icons** | Lucide React |
+| **Hosting** | Firebase Hosting |
+| **Linting** | ESLint |
+
+---
+
 ## 🛠️ Development Setup
 
 ### Prerequisites

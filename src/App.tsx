@@ -60,6 +60,7 @@ function App() {
         <div className="header-content">
           <div className="logo-container">
             <h1>DoodleTrace ✏️</h1>
+            <p className="tagline">Trace Your Way to Amazing!</p>
           </div>
 
           <div className="mode-toggle">

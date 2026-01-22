@@ -49,6 +49,13 @@ body,
   text-shadow: 1px 1px 0px #000;
 }
 
+.logo-container .tagline {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #666;
+  font-style: italic;
+}
+
 /* Mode Toggle */
 .mode-toggle {
   display: flex;
